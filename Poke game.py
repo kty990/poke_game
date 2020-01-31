@@ -7,8 +7,25 @@ def isInt(value):
     except ValueError:
         return False
 
-class Pokemon(NAME,atk,Def,spd,sp_atk,sp_def):
-    name = NAME
+class Pokemon():
+    """ initial function """
+    name = ""
+    attack = ""
+    defence = ""
+    speed = ""
+    sp_attack = ""
+    sp_defence = ""
+    
+    def initialize(NAME,atk,Def,spd,sp_atk,sp_def):
+        global name,attack,defence,speed,sp_attack, sp_defence
+        name = NAME
+        attack = atk
+        defence = Def
+        speed = spd
+        sp_attack = sp_atk
+        sp_defence = sp_def
+    
+    
     """ Status condition initialization """
     
     poison = False
@@ -24,15 +41,18 @@ class Pokemon(NAME,atk,Def,spd,sp_atk,sp_def):
     move = [] #Stores chosen move name, priority, and base power
     
     chosen_moves = [] #Will have the names of the chosen moves once the user chooses.
-    moves = [] #Names for possible moves
-    power = [] #Power for moves
-    priority = [] #Priority for moves
+    moves = ["TEST"] #Names for possible moves
+    power = ["TEST"] #Power for moves
+    priority = ["TEST"] #Priority for moves
     
     
     """ Function declaration """
     
     def choose_moves():
         global chosen_moves
+        global moves
+        global power
+        global priority
         for x in range(len(moves)):
             print(f"{x}\nName: {moves[x]}\nBase power: {power[x]}\nMove priority: {priority[x]}\n")
         print("Scroll through the list moves, and enter ONE number at a time to select the move. (@1/30/20 no moves restrictions with type)")
@@ -95,13 +115,13 @@ class Player(name):
     import time as t
     t.sleep(2)
     print(f"Please choose a starter..")
-    starter_names = []
-    starter_hp = []
-    starter_atk = []
-    starter_def = []
-    starter_sp_def = []
-    starter_sp_atk = []
-    starter_speed = []
+    starter_names = ["Onneon","Spyodre", "Wormana"] #Types: Fighting, Bug (When evolved: + poison), Psychic
+    starter_hp = [16, 13, 23] #hp = hp + ((level * hp) * 0.1)
+    starter_atk = [14, 10, 1]
+    starter_def = [18, 10, 1]
+    starter_sp_def = [8, 12, 20]
+    starter_sp_atk = [5, 10, 20]
+    starter_speed = [12, 18, 8]
     
     for i in range(len(starter_names)):
         print(f"{i}\nName: {starter_names[i]}\nHP: {starter_hp[i]}\nATK: {starter_atk[i]}\nDEF: {starter_def[i]}\nSP-ATK: {starter_sp_atk[i]}\nSP-DEF: {starter_sp_def[i]}\nSPEED: {starter_speed[i]}")
@@ -118,3 +138,4 @@ class Player(name):
                 starter = starter - 1
     chosen_starter = Pokemon(starter_names[starter], starter_atk[starter], starter_def[starter], starter_speed[starter], starter_sp_atk[starter], starter_sp_def[starter])
     
+Ty = Player("Ty")
