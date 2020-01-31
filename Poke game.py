@@ -1,7 +1,14 @@
 #Poke game
 
-class Pokemon(name,atk,Def,spd,sp_atk,sp_def):
-    
+def isInt(value):
+    try:
+        test_value = int(value)
+        return True
+    except ValueError:
+        return False
+
+class Pokemon(NAME,atk,Def,spd,sp_atk,sp_def):
+    name = NAME
     """ Status condition initialization """
     
     poison = False
@@ -23,13 +30,6 @@ class Pokemon(name,atk,Def,spd,sp_atk,sp_def):
     
     
     """ Function declaration """
-    
-    def isInt(value):
-        try:
-            test_value = int(value)
-            return True
-        except ValueError:
-            return False
     
     def choose_moves():
         global chosen_moves
@@ -92,3 +92,29 @@ class Pokemon(name,atk,Def,spd,sp_atk,sp_def):
     
 class Player(name):
     print(f"Player: {name} has joined the fight!")
+    import time as t
+    t.sleep(2)
+    print(f"Please choose a starter..")
+    starter_names = []
+    starter_hp = []
+    starter_atk = []
+    starter_def = []
+    starter_sp_def = []
+    starter_sp_atk = []
+    starter_speed = []
+    
+    for i in range(len(starter_names)):
+        print(f"{i}\nName: {starter_names[i]}\nHP: {starter_hp[i]}\nATK: {starter_atk[i]}\nDEF: {starter_def[i]}\nSP-ATK: {starter_sp_atk[i]}\nSP-DEF: {starter_sp_def[i]}\nSPEED: {starter_speed[i]}")
+    
+    starter = ""
+    while isInt(starter) == False:
+        print("Select the number for the starter you wish to choose.")
+        starter = input(">> ")
+        if isInt(starter) == True:
+            starter = int(starter)
+            if starter > len(starter_names) or starter < 1:
+                starter = ""
+            else:
+                starter = starter - 1
+    chosen_starter = Pokemon(starter_names[starter], starter_atk[starter], starter_def[starter], starter_speed[starter], starter_sp_atk[starter], starter_sp_def[starter])
+    
