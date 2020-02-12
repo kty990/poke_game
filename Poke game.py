@@ -21,7 +21,7 @@ class Pokemon():
     sp_attack = ""
     sp_defence = ""    
     
-    def initialize(NAME,atk,Def,spd,sp_atk,sp_def):
+    def google(self, NAME,atk,Def,spd,sp_atk,sp_def):
         #global name,attack,defence,speed,sp_attack, sp_defence
         name = NAME
         attack = atk
@@ -47,7 +47,7 @@ class Pokemon():
     
     """ Function declaration """
     
-    def choose_moves():
+    def choose_moves(self):
         global chosen_moves
         global moves
         global power
@@ -66,7 +66,7 @@ class Pokemon():
             if iteration == 4:
                 break
     
-    def make_move():
+    def make_move(self):
         global chosen_moves
         print("Your moves are as follows:\n")
         for x in range(len(chosen_moves)):
@@ -85,12 +85,12 @@ class Pokemon():
                     #switch out pokemon with option to cancel and return to attacking
                     pass #temporary placeholder to remove warning/yellow underline in editor
     
-    def getMove(): 
+    def getMove(self): 
         global move
         """ Returns: Move name, Priority, Base power. In that order """
         return move #is a list
     
-    def take_damage(value):
+    def take_damage(self, value):
         global health
         health -= value
         if health <= 0:
@@ -98,7 +98,7 @@ class Pokemon():
         else:
             print(f"Current health for {name} is {health}.")
     
-    def restore_health(value):
+    def restore_health(self, value):
         global health
         if health + value >= 100:
             health = 100
@@ -133,11 +133,8 @@ class Player():
             else:
                 starter = starter - 1
     chosen_starter = Pokemon()
-    test = [starter_names[starter], starter_atk[starter], starter_def[starter], starter_speed[starter], starter_sp_atk[starter], starter_sp_def[starter]]
-    print(len(test))
-    chosen_starter.initialize(starter_names[starter], starter_atk[starter], starter_def[starter], starter_speed[starter], starter_sp_atk[starter], starter_sp_def[starter])
-    #                                 1                    2                       3                        4                        5                       6
+    chosen_starter.google(starter_names[starter], starter_atk[starter], starter_def[starter], starter_speed[starter], starter_sp_atk[starter], starter_sp_def[starter])
     chosen_starter.choose_moves()
-Ty = Player("Ty")
+Ty = Player()
 
 #NAME,atk,Def,spd,sp_atk,sp_def
