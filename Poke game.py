@@ -21,6 +21,18 @@ class Pokemon():
     sp_attack = ""
     sp_defence = ""    
     
+    def fainted():
+        print(f"{name} has fainted.")
+        
+    def wild_encounter():
+        """
+        Use player's highest lvl pokemon to determine stats of the wild encounter.
+        """
+    
+    def cheat_codes():
+        #Don't save when cheats are active for the session.
+        """"""
+    
     def google(self, NAME,atk,Def,spd,sp_atk,sp_def):
         #global name,attack,defence,speed,sp_attack, sp_defence
         name = NAME
@@ -136,5 +148,3 @@ class Player():
     chosen_starter.google(starter_names[starter], starter_atk[starter], starter_def[starter], starter_speed[starter], starter_sp_atk[starter], starter_sp_def[starter])
     chosen_starter.choose_moves()
 Ty = Player()
-
-#NAME,atk,Def,spd,sp_atk,sp_def
